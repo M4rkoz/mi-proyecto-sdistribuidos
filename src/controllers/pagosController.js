@@ -3,11 +3,10 @@ const PagosModel = require("../models/pagosModel");
 class PagosController {
   static async agregarPago(req, res) {
     try {
-      const { usuarioId, deudaId, montoPagado } = req.body;
+      const { usuarioId, deudaId } = req.body;
       const pagoId = await PagosModel.agregarPago(
         usuarioId,
-        deudaId,
-        montoPagado
+        deudaId
       );
       res.status(201).json({ mensaje: "Pago agregado correctamente", pagoId });
     } catch (error) {
